@@ -1,0 +1,20 @@
+@{
+ViewData["Title"] = "All String In Form";
+}
+@model AccountUserViewModel
+<h1>@ViewData["Title"]</h1>
+<partial name="_Menu" />
+<div class="attack-page-content">
+    <!-- Instructions and some code removed -->
+    @using (Html.BeginForm())
+    {
+        <div>
+            <label for="foodName">Search By Food Name:</label>
+            <input type="text" id="foodName" name="foodName" />
+        </div>
+        <button type="submit">Search</button>
+    }
+    <!-- Code with XSS vulnerability -->
+    <h2>You searched for: @Html.Raw(Model.SearchText)</h2>
+    <!-- Table to show results removed -->
+</div>
